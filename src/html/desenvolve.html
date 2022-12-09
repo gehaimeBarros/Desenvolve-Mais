@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="" />
+    <meta name="description" content="150 words" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="author" content="Gehaime B.">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+
+    <script src="https://kit.fontawesome.com/7db78e5ecc.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="shortcut icon" href="../img/3.PNG" type="image/x-icon">
+    <title>Desenvolve+ | Santander</title>
+</head>
+
+<body onload="startTime()">
+    <style>
+        body {
+            width: 100%;
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+        }
+
+        div.back {
+            background-color: #ffffff;
+        }
+
+        nav.header-nav {
+            border: 2px solid #000000;
+            width: 100%;
+            height: 5rem;
+            bottom: 0;
+            left: 0;
+            display: inline;
+            background-color: #ffffff;
+            border: 0;
+        }
+
+        nav.header-nav li {
+            display: inline;
+        }
+
+        nav.header-nav img.img-snt {
+            margin-left: 1rem;
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: 1rem;
+            border: 2px solid #b0afaf;
+            border-bottom: 1px;
+            border-top: 1px;
+            border-left: 1px;
+            opacity: 0.9;
+        }
+
+        nav.header-nav .div-t {
+            border: 2px solid transparent;
+            font-size: 21px;
+            display: inline-block;
+            vertical-align: middle;
+            height: 2rem;
+            opacity: 0.4;
+            margin-top: 0.5rem;
+            line-height: 2rem;
+        }
+
+        nav.header-nav b#t {
+            margin-top: 1px;
+        }
+
+        div.col1-pag,
+        div.pag,
+        div.simulator,
+        div.-msbutton {
+            margin-top: 3rem;
+            margin-left: 2rem;
+        }
+
+        div.col1-pag header h1 {
+            font-weight: 1;
+            font-size: 3rem;
+        }
+
+        div.col1-pag header h2 {
+            opacity: 0.8;
+            font-weight: 1;
+            font-size: 1.5rem;
+        }
+
+        div.calc {
+            margin-top: 3rem;
+        }
+
+        div.calc button {
+            width: 14rem;
+            height: 3rem;
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            background-color: #c00;
+            border: 2px solid #c00;
+            color: #ffffff;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        div.calc button:active {
+            background-color: transparent;
+            color: #c00;
+            font-weight: 700;
+        }
+
+
+        #escondido,
+        #modal-curso-fina,
+        #modal-certificado-fina {
+            display: none;
+            margin-top: 2rem;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            height: 30rem;
+            width: 38rem;
+            text-align: center;
+            margin: auto;
+        }
+
+        div#escondido b#curso-imp {
+            color: #c00;
+        }
+
+        div#escondido h4 {
+            font-size: 19px;
+        }
+
+        div.-ms,
+        div.div-parc {
+            display: inline-block;
+            vertical-align: middle;
+            justify-content: space-around;
+            width: 12rem;
+        }
+
+        div.cal-pag-finan {
+            margin: auto;
+            width: 100%;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        div.div-men {
+            margin-top: 2rem;
+            font-weight: 1;
+        }
+
+        span#i,
+        b#curso-parc,
+        b#curso-valor {
+            color: #c00;
+        }
+
+        select {
+            width: 24.5rem;
+            height: 2.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+
+        option {
+            font-weight: 500;
+            text-align: center;
+            font-size: 17px;
+            color: #c00;
+        }
+
+        select,
+        input#curso {
+            border: 1px solid #000000;
+        }
+
+        input#curso:focus::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        input#curso {
+            width: 24rem;
+            height: 2.5rem;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        select:focus,
+        input#curso:focus {
+            outline: 0;
+            border: 1px solid #c00;
+        }
+
+        div.imp-vl {
+            border: 1px solid #c00;
+            width: 10rem;
+            height: 2rem;
+            line-height: 2.1rem;
+            margin-left: 1rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 0.6rem;
+            vertical-align: middle;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            margin: 10px 0;
+            width: 20rem;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 12.8px;
+            cursor: pointer;
+            animate: 0.2s;
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+            background: #c00;
+            border-radius: 25px;
+            border: 0px solid #000101;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+            border: 0px solid #000000;
+            height: 20px;
+            width: 39px;
+            border-radius: 7px;
+            background: #65001c;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -3.6px;
+        }
+
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #f1d5d5;
+            border: 2px solid #c00;
+        }
+
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 12.8px;
+            cursor: pointer;
+            animate: 0.2s;
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+            border-radius: 25px;
+            border: 0px solid #000101;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+            border: 0px solid #000000;
+            height: 20px;
+            width: 39px;
+            border-radius: 7px;
+            background: #65001c;
+            cursor: pointer;
+        }
+
+        input[type=range]::-ms-track {
+            width: 100%;
+            height: 12.8px;
+            cursor: pointer;
+            animate: 0.2s;
+            background: transparent;
+            border-color: transparent;
+            border-width: 39px 0;
+            color: transparent;
+        }
+
+        input[type=range]::-ms-fill-lower {
+            border: 0px solid #000101;
+            border-radius: 50px;
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        }
+
+        input[type=range]::-ms-fill-upper {
+            border: 0px solid #000101;
+            border-radius: 50px;
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        }
+
+        input[type=range]::-ms-thumb {
+            box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+            border: 0px solid #000000;
+            height: 20px;
+            width: 39px;
+            border-radius: 7px;
+            background: #65001c;
+            cursor: pointer;
+        }
+
+        i.fa-graduation-cap {
+            color: #c00;
+
+        }
+
+        button#curso-btn {
+            width: 10rem;
+            height: 3rem;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            background-color: #c00;
+            border: 2px solid #c00;
+            color: #ffffff;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        button#curso-btn:hover {
+            background-color: #530f0f;
+        }
+
+        button#curso-btn:active {
+            background-color: transparent;
+            color: #c00;
+            font-weight: 700;
+        }
+
+        button.btn-reload {
+            width: 5rem;
+            height: 2rem;
+            font-size: 16px;
+            font-weight: 1;
+            letter-spacing: 1px;
+            cursor: pointer;
+            background-color: #c00;
+            border: 2px solid #c00;
+            color: #ffffff;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        button.btn-reload:active {
+            background-color: #f1d5d5;
+            border: 2px solid #c00;
+            color: #c00;
+            font-weight: bold;
+        }
+
+
+        @media (max-width: 600px) {
+
+            div.col1-pag,
+            div.pag,
+            div.simulator,
+            div.-msbutton {
+                margin-top: 3rem;
+                margin: auto;
+            }
+
+            .info {
+                border: 2px solid transparent;
+                text-align: center;
+                margin: auto;
+            }
+
+            #title-pag {
+                font-size: 14px;
+            }
+
+            h1.title {
+                font-size: 27px;
+            }
+
+            h1 {
+                font-size: 17px;
+            }
+
+            #modal-curso-fina {
+                border: 2px solid transparent;
+                margin: auto;
+                width: 20rem;
+                text-align: center;
+            }
+
+            select,
+            input#curso {
+                width: 14rem;
+            }
+
+            input[type=range] {
+                width: 14rem;
+            }
+
+            .div-men,
+            .div-parc,
+            h4 {
+                width: 20rem;
+            }
+
+            div.cal-pag-finan {
+                line-height: 1.9rem;
+                width: 18rem;
+                border: 2px solid transparent;
+            }
+
+            #escondido {
+                border: 2px solid transparent;
+                width: 20rem;
+                text-align: center;
+            }
+
+        }
+
+        .title {
+            color: #1A1110;
+            margin-bottom: 5%;
+        }
+
+        .modalBtn {
+            height: 5vh;
+            min-height: 30px;
+            width: 15vh;
+            min-width: 130px;
+            border-radius: 5px;
+            border: 0;
+            outline: 0;
+            background-color: #c8d7e6;
+        }
+
+        .text {
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal .content {
+            background-color: #ffffff;
+            margin: 3% auto;
+            padding: 20px;
+            border-radius: 5px;
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--title);
+            height: 35.4rem;
+            text-align: center;
+        }
+
+        span#finan {
+            font-weight: 700;
+            cursor: pointer;
+            color: #a10000;
+        }
+
+        span#finan:hover {
+            color: #ff8c8c;
+        }
+    </style>
+
+    <nav class="header-nav">
+        <div class="div-nav back">
+            <img class="img-snt" src="../img/1.PNG" style="cursor: pointer;"
+                onclick="window.location.href='https://www.santander.com.br/'" alt="img-bank">
+            <div class="div-t">
+                <b id="t">Desenvolve+</b>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        .div-info-comp {
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        #nome,
+        #email,
+        #cpf,
+        #agencia,
+        #conta {
+            height: 2.5rem;
+            width: 20rem;
+            font-size: 18px;
+        }
+
+        #nome:focus::-webkit-input-placeholder,
+        #email:focus::-webkit-input-placeholder,
+        #cp:focus::-webkit-input-placeholderf,
+        #agencia:focus::-webkit-input-placeholderf,
+        #conta:focus::-webkit-input-placeholderf {
+            color: transparent;
+        }
+
+        #btn-enviar {
+            width: 12rem;
+            height: 2.5rem;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            background-color: #c00;
+            border: 2px solid #c00;
+            color: #ffffff;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        #btn-enviar:hover {
+            background-color: #65001c;
+        }
+
+        #btn-enviar:active {
+            background-color: transparent;
+            color: #c00;
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+
+            #nome,
+            #email,
+            #cpf,
+            #agencia,
+            #conta {
+                height: 2.5rem;
+                width: 17rem;
+                font-size: 18px;
+            }
+
+            img[id="log-bank"] {
+                width: 100%;
+                height: 100%;
+                margin-top: 1rem;
+            }
+        }
+
+        .ha-screen-reader {
+            width: var(--ha-screen-reader-width, 1px);
+            height: var(--ha-screen-reader-height, 1px);
+            padding: var(--ha-screen-reader-padding, 0);
+            border: var(--ha-screen-reader-border, none);
+            position: var(--ha-screen-reader-position, absolute);
+            clip: var(--ha-screen-reader-clip, rect(1px, 1px, 1px, 1px));
+            overflow: var(--ha-screen-reader-overflow, hidden);
+        }
+
+
+        .field__input {
+            --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #767676);
+            background-color: transparent;
+            border-radius: 0;
+            border: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-size: inherit;
+        }
+
+        .field__input:focus::-webkit-input-placeholder {
+            color: var(--uiFieldPlaceholderColor);
+        }
+
+        .field__input:focus::-moz-placeholder {
+            color: var(--uiFieldPlaceholderColor);
+        }
+
+        .field {
+            --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+            --uiFieldPaddingRight: var(--fieldPaddingRight, 1rem);
+            --uiFieldPaddingLeft: var(--fieldPaddingLeft, 1rem);
+            --uiFieldBorderColorActive: var(--fieldBorderColorActive, #000000);
+            display: var(--fieldDisplay, inline-flex);
+            position: relative;
+            font-size: var(--fieldFontSize, 1rem);
+        }
+
+        .field__input {
+            box-sizing: border-box;
+            width: var(--fieldWidth, 100%);
+            height: var(--fieldHeight, 3rem);
+            padding: var(--fieldPaddingTop, 1.25rem) var(--uiFieldPaddingRight) var(--fieldPaddingBottom, .5rem) var(--uiFieldPaddingLeft);
+            border-bottom: var(--uiFieldBorderWidth) solid var(--fieldBorderColor, rgba(0, 0, 0, .25));
+        }
+
+        .field__input:focus {
+            outline: none;
+        }
+
+        .field__input::-webkit-input-placeholder {
+            opacity: 0;
+            transition: opacity .2s ease-out;
+        }
+
+        .field__input::-moz-placeholder {
+            opacity: 0;
+            transition: opacity .2s ease-out;
+        }
+
+        .field__input:focus::-webkit-input-placeholder {
+            opacity: 1;
+            transition-delay: .2s;
+        }
+
+        .field__input:focus::-moz-placeholder {
+            opacity: 1;
+            transition-delay: .2s;
+        }
+
+        .field__label-wrap {
+            box-sizing: border-box;
+            pointer-events: none;
+            cursor: text;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .field__label-wrap::after {
+            content: "";
+            box-sizing: border-box;
+            width: 100%;
+            height: 0;
+            opacity: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .field__input:focus~.field__label-wrap::after {
+            opacity: 1;
+        }
+
+        .field__label {
+            position: absolute;
+            left: var(--uiFieldPaddingLeft);
+            top: calc(50% - .5em);
+            line-height: 1;
+            font-size: var(--fieldHintFontSize, inherit);
+            transition: top .2s cubic-bezier(0.9, -0.15, 0.1, 1.15), opacity .2s ease-out, font-size .2s ease-out;
+        }
+
+        .field__input:focus~.field__label-wrap .field__label,
+        .field__input:not(:placeholder-shown)~.field__label-wrap .field__label {
+            --fieldHintFontSize: var(--fieldHintFontSizeFocused, .75rem);
+            top: var(--fieldHintTopHover, .25rem);
+        }
+
+        .field_v1 .field__label-wrap::after {
+            border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+            transition: opacity .2s ease-out;
+        }
+
+
+        .field_v2 .field__label-wrap {
+            overflow: hidden;
+        }
+
+        .field_v2 .field__label-wrap::after {
+            border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+            transform: translate3d(-105%, 0, 0);
+            transition: transform .285s ease-out .2s, opacity .2s ease-out .2s;
+        }
+
+        .field_v2 .field__input:focus~.field__label-wrap::after {
+            transform: translate3d(0, 0, 0);
+            transition-delay: 0;
+        }
+
+        .field_v3 .field__label-wrap::after {
+            border: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+            transition: height .2s ease-out, opacity .2s ease-out;
+        }
+
+        .field_v3 .field__input:focus~.field__label-wrap::after {
+            height: 100%;
+        }
+
+        .field {
+            --fieldBorderColor: #D1C4E9;
+            --fieldBorderColorActive: #c00;
+        }
+
+        .page {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 480px;
+            margin: auto;
+            padding: 1rem;
+            display: grid;
+            grid-gap: 15px;
+        }
+
+        .linktr {
+            order: -1;
+            padding: 1.75rem;
+            text-align: center;
+        }
+
+        .linktr__goal {
+            background-color: rgb(209, 246, 255);
+            color: rgb(8, 49, 112);
+            box-shadow: rgb(8 49 112 / 24%) 0px 2px 8px 0px;
+            border-radius: 2rem;
+            padding: .5rem 1.25rem;
+        }
+
+        @media (min-width: 1024px) {
+
+            .linktr {
+                position: absolute;
+                right: 1rem;
+                bottom: 1rem;
+            }
+        }
+
+        .r-link {
+            --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+            --uirLinkTextColor: var(--rLinkTextColor);
+            --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+            display: var(--uirLinkDisplay) !important;
+            color: var(--uirLinkTextColor) !important;
+            text-decoration: var(--uirLinkTextDecoration) !important;
+        }
+
+        input#search {
+            background-color: #c00;
+            color: #ffffff;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        img[id="log-bank"] {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+
+        b#cr-ig {
+            color: #c00;
+        }
+    </style>
+
+    <div class="modal">
+        <div class="content">
+            <form id="col1">
+                <h1 class="title"><i style="color: #c00;" class="fa-solid fa-graduation-cap"></i> Desenvolve+</h1>
+                <h5>Digite suas informações para aprovação do financiamento <i class="fa-sharp fa-solid fa-list"></i>
+                </h5>
+                <div class="page">
+                    <div class="field field_v2">
+                        <label for="last-name" class="ha-screen-reader">nome completo</label>
+                        <input id="last-name" class="field__input" name="nome" placeholder="joao silva"
+                            autocomplete="on" required />
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span n class="field__label">Nome completo <i
+                                    class="fa-sharp fa-solid fa-signature"></i></span>
+                        </span>
+                    </div>
+                    <div class="field field_v2">
+                        <label for="last-name" class="ha-screen-reader">email</label>
+                        <input type="email" id="last-name" name="email" class="field__input" placeholder="seu@email.com"
+                            autocomplete="on" required />
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span n class="field__label">Email <i class="fa-sharp fa-solid fa-envelope"></i></span>
+                        </span>
+                    </div>
+                    <div class="field field_v2">
+                        <label for="last-name" class="ha-screen-reader">cpf</label>
+                        <input id="last-name" name="cpf" class="field__input" placeholder="000.000.000-00"
+                            autocomplete="on" required />
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span n class="field__label">Cpf <i class="fa-sharp fa-solid fa-id-card"></i></span>
+                        </span>
+                    </div>
+                    <div class="field field_v2">
+                        <label for="last-name" class="ha-screen-reader">agencia</label>
+                        <input id="last-name" name="agencia" class="field__input" placeholder="0000" autocomplete="on"
+                            required />
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span n class="field__label">Agencia <i class="fa-sharp fa-solid fa-credit-card"></i></span>
+                        </span>
+                    </div>
+                    <div class="field field_v2">
+                        <label for="last-name" class="ha-screen-reader">conta</label>
+                        <input id="last-name" name="conta" class="field__input" placeholder="000000-0" autocomplete="on"
+                            required />
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span n class="field__label">Conta <i class="fa-sharp fa-solid fa-credit-card"></i></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="div-info-comp"><span>Comprovante de renda <i
+                            class="fa-sharp fa-solid fa-file-export"></i></span><br><br><input type="file" id="search"
+                        required />
+                </div>
+                <p><button type="submit" id="btn-enviar">Enviar <i
+                            class="fa-sharp fa-solid fa-paper-plane"></i></button></p>
+        </div>
+    </div>
+
+    <script>
+        var cpf = document.getElementsByName('cpf');
+        var agencia = document.getElementsByName('agencia');
+        var conta = document.getElementsByName('conta');
+
+        $(cpf).mask('999.999.999-99');;
+        $(agencia).mask('9999');
+        $(conta).mask('999999-9');
+
+        var form1 = document.getElementById('col1');
+        form1.addEventListener('submit', e => {
+            e.preventDefault();
+        });
+
+        $('#btn-enviar').on('click', function () {
+            enviarFinan();
+        });
+
+        function enviarFinan() {
+            var nomeUsers = document.querySelector('input[name="nome"]').value;
+            var emailUsers = document.querySelector('input[name="email"]').value;
+            var cpfUsers = document.querySelector('input[name="cpf"]').value;
+            var agenciaUsers = document.querySelector('input[name="agencia"]').value;
+            var contaUsers = document.querySelector('input[name="conta"]').value;
+            var cursoInfo = document.getElementById('curso').value;
+
+            if (nomeUsers == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    html: '<b>Digite seu nome.</b>',
+                    confirmButtonColor: "#c00",
+                    confirmButtonText: "Ok",
+                });
+            } else if (emailUsers == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    html: '<b>Digite seu email valido.</b>',
+                    confirmButtonColor: "#c00",
+                    confirmButtonText: "Ok",
+                });
+            } else if (cpfUsers == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    html: '<b>Digite seu cpf.</b>',
+                    confirmButtonColor: "#c00",
+                    confirmButtonText: "Ok",
+                });
+            } else if (agenciaUsers == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    html: '<b>Digite sua agencia.</b>',
+                    confirmButtonColor: "#c00",
+                    confirmButtonText: "Ok",
+                });
+            } else if (contaUsers == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    html: '<b>Digite sua conta.</b>',
+                    confirmButtonColor: "#c00",
+                    confirmButtonText: "Ok",
+                });
+            } else {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Enviado com sucesso!'
+                });
+
+                setTimeout(() => {
+                    Swal.fire({
+                        icon: 'success',
+                        html: '<span>Enviamos informações do seu financiamento do curso ' + '<b id="cr-ig">' + cursoInfo + '</b>' + ' para o email </span>' + '<b>' + emailUsers + '</b>',
+                        confirmButtonColor: "#c00",
+                        confirmButtonText: "Ok",
+                    }).then((result) => {
+                      
+                        if (result.isConfirmed) {
+                            window.location.reload();
+                        } else if (result.isDenied) {
+                            
+                        }
+                    })
+                }, 2000);
+            }
+        }
+    </script>
+    </form>
+    </div>
+
+    <div>
+        <img id="log-bank" src="../img/imgS.PNG" alt="img-bank">
+    </div>
+
+    <div class="col2-pag info">
+        <div class="col1-pag">
+            <header id="title-pag">
+                <h1><i class="fa-solid fa-graduation-cap"></i> Desenvolve+ </h1>
+                <h2>Conte com a gente para dar uma força aos seus estudos! faça um financiamento do seu curso.</h2>
+
+            </header>
+        </div>
+
+        <div class="title-2 pag">
+            <h3>Faça agora uma simulação e conheça as vantagens.</h3>
+        </div>
+
+        <div class="pag-button-info -user-finan -msbutton">
+            <button id="curso-btn" onclick="MudarestadoCurso('modal-curso-fina')">Cursos <i
+                    class="fa-sharp fa-solid fa-landmark-flag"></i></button>
+        </div>
+    </div><br><br>
+
+    <div class="col-pag simulator" id="modal-curso-fina">
+        <form id="col">
+            <div class="slc-one">
+                <p>Nome da plataforma <i class="fa-solid fa-cube"></i> </p>
+                <select id="slc-curso-finan" required />
+                <option value="" selected>Selecione</option>
+                <option value="Herospark">Herospark</option>
+                <option value="EADplataforma">EADplataforma</option>
+                <option value="Moodle">Moodle</option>
+                <option value="Eduzz">Eduzz</option>
+                <option value="Udemy">Udemy</option>
+                <option value="Apollo">Apollo</option>
+                <option value="EADbox">EADbox</option>
+                <option value="Hotmart">Hotmart</option>
+                <option value="Alura">Alura</option>
+                </select>
+                <p>Nome do curso <i class="fa-solid fa-pencil"></i></p>
+                <input placeholder="Digite o nome do curso" type="text" id="curso" required />
+                <p>Numeros de parcelas <i class="fa-solid fa-percent"></i></p>
+                <select id="parcela" required />
+                <option value="" selected>Selecione</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                </select>
+                <p>Qual valor total que você gostaria de financiar? <i
+                        class="fa-sharp fa-solid fa-hand-holding-dollar"></i>
+                </p>
+                <input type="range" value="500" min="500" max="10000" step="100" id="range">
+                <div class="imp-vl">
+                    <span id="impressao"></span>
+                </div>
+            </div>
+
+            <div class="div-btn calc">
+                <button type="submit" id="Clique" onclick="validar()">Simular <i
+                        class="fa-sharp fa-solid fa-calculator"></i></button>
+            </div><br><br><br><br>
+
+            <div id="escondido">
+                <h4>Confira como ficou sua simulação: *</h4>
+                <div class="div-info- cal-pag-finan">
+                    <div class="div-parc">
+                        <b>Valor da parcela</b><br>
+                        <b id="curso-valor"></b>
+                    </div>
+                    <div class="div-parc">
+                        <b>Prazo</b><br>
+                        <b id="curso-parc"></b>
+                    </div>
+                    <div class="div-parc -ms">
+                        <b id="text-b ms">E ai, coube no bolso?<br>
+                            <span id="i" style="cursor: pointer;">Vamos financiar?</span><br><span id="finan">CLIQUE
+                                AQUI</span></b>
+                    </div>
+                </div>
+                <div class="div-men">
+                    <div>
+                        <b>Data e hora da simulação: </b> <span class="output"></span><b> / Hora: </b><span
+                            id="txt"></span>
+                    </div>
+                    <p><b>* Foi considerada a taxa mínima de 1,82¹% ao mês para o curso de </b><b id="curso-imp"></b><b>
+                            e
+                            2,22¹% ao mês para demais
+                            cursos elegíveis.</b></p>
+
+                    <p><b>* Essa simulação é referente ao 1º contrato de financiamento graduação. Para renovar seu
+                            contrato,
+                            procure seu gerente. Sujeito a análise de crédito.</b></p>
+
+                    <p><b>* Trata-se de uma simulação e os valores poderão sofrer alterações no momento da
+                            contratação.</b>
+                    </p>
+                </div>
+                <button class="btn-reload" onclick="window.location.reload()"><i
+                        class="fa-solid fa-rotate-right"></i></button>
+            </div><br><br><br><br>
+        </form>
+    </div><br><br><br><br>
+
+    <script>
+        var form = document.getElementById("col");
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+        });
+
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+            t = setTimeout('startTime()', 500);
+        }
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        function validar() {
+            var slcCurso = document.getElementById('slc-curso-finan');
+            var cursoUSer = document.getElementById('curso').value;
+            var slcParcela = document.getElementById('parcela');
+
+            if (slcCurso.options[slcCurso.selectedIndex].value == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    html: '<b>Selecione uma plataforma de curso.</b>',
+                    confirmButtonColor: "#c00",
+                    confirmButtonText: "Ok",
+                });
+            } else if (cursoUSer == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    html: '<b>Digite o nome do curso.</b>',
+                    confirmButtonColor: "#c00",
+                    confirmButtonText: "Ok",
+                });
+            } else if (slcParcela.options[slcParcela.selectedIndex].value == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    html: '<b>Selecione o numero de parcelas.</b>',
+                    confirmButtonColor: "#c00",
+                    confirmButtonText: "Ok",
+                });
+            } else {
+                $("html, body").animate({
+                    scrollTop: $(
+                        'html, body').get(0).scrollHeight
+                }, 2000);
+                $("#escondido").css("display", "block");
+                fac();
+                getCurrentDate();
+                calc();
+                return false;
+            }
+
+        }
+
+        function getCurrentDate() {
+
+            let dateObj = new Date();
+            let month = String(dateObj.getMonth() + 1).padStart(2, '0');
+            let day = String(dateObj.getDate()).padStart(2, '0');
+            let year = dateObj.getFullYear();
+            let output = day + '/' + month + '/' + year;
+
+            document.querySelector('.output').textContent = output;
+        }
+
+
+        function MudarestadoCurso(el) {
+            var display = document.getElementById(el).style.display;
+            if (display == "none")
+                document.getElementById(el).style.display = 'block';
+            else
+                document.getElementById(el).style.display = 'none';
+            $("html, body").animate({
+                scrollTop: $(
+                    'html, body').get(0).scrollHeight
+            }, 2000);
+        }
+
+
+        function fac() {
+            var inputImp = document.getElementById('curso').value;
+            document.getElementById('curso-imp').innerText = inputImp;
+
+            var slcParc = document.getElementById('parcela').value;
+            document.getElementById('curso-parc').innerText = slcParc + " meses";
+        }
+
+        var range = document.getElementById("range");
+        var impressao = document.getElementById("impressao");
+        impressao.innerHTML = range.value;
+
+        range.oninput = function () {
+            impressao.innerHTML = parseInt(this.value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        var event = new CustomEvent("input");
+        range.dispatchEvent(event);
+
+        function calc() {
+            var slcParc = parseInt(document.getElementById('parcela').value, 10);
+            var juros = 1.80;
+            var total = range.value / slcParc;
+            document.getElementById('curso-valor').innerText = total * juros;
+            $("#curso-valor").text(parseInt($("#curso-valor").text()).toLocaleString('pt-br', {
+                style: 'currency',
+                currency: 'BRL',
+
+            }));
+        }
+
+        function atualizaRelogio() {
+            var momentoAtual = new Date();
+
+            var vhora = momentoAtual.getHours();
+            var vminuto = momentoAtual.getMinutes();
+            var vsegundo = momentoAtual.getSeconds();
+
+            var vdia = momentoAtual.getDate();
+            var vmes = momentoAtual.getMonth() + 1;
+            var vano = momentoAtual.getFullYear();
+
+            if (vdia < 10) { vdia = "0" + vdia; }
+            if (vmes < 10) { vmes = "0" + vmes; }
+            if (vhora < 10) { vhora = "0" + vhora; }
+            if (vminuto < 10) { vminuto = "0" + vminuto; }
+            if (vsegundo < 10) { vsegundo = "0" + vsegundo; }
+
+            dataFormat = vdia + " / " + vmes + " / " + vano;
+            horaFormat = vhora + " : " + vminuto + " : " + vsegundo;
+
+            document.getElementById("data").innerHTML = dataFormat;
+            document.getElementById("hora").innerHTML = horaFormat;
+
+            setTimeout("atualizaRelogio()", 1000);
+        }
+
+        const switchModal = () => {
+            const modal = document.querySelector('.modal')
+            const actualStyle = modal.style.display
+            if (actualStyle == 'block') {
+                modal.style.display = 'none'
+            }
+            else {
+                modal.style.display = 'block'
+            }
+        }
+
+        const btn = document.querySelector('#finan')
+        btn.addEventListener('click', switchModal)
+
+        window.onclick = function (event) {
+            const modal = document.querySelector('.modal')
+            if (event.target == modal) {
+                switchModal()
+            }
+        }
+    </script>
+
+</body>
+
+</html>

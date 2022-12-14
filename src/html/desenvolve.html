@@ -15,7 +15,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="../img/3.PNG" type="image/x-icon">
     <title>Desenvolve+ | Santander</title>
 </head>
@@ -94,21 +96,26 @@
         }
 
         div.calc {
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         div.calc button {
             width: 14rem;
             height: 3rem;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 500;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             cursor: pointer;
             background-color: #c00;
             border: 2px solid #c00;
             color: #ffffff;
             border-radius: 5px;
-            text-transform: uppercase;
+        }
+
+        div.calc button:hover {
+            border: 2px solid #552222;
+            background-color: #552222;
+            color: #ffffff;
         }
 
         div.calc button:active {
@@ -123,9 +130,10 @@
         #modal-certificado-fina {
             display: none;
             margin-top: 2rem;
-            border: 1px solid #000000;
+            border: 3px solid transparent;
+            background-color: #ffeeee;
             border-radius: 6px;
-            height: 30rem;
+            height: 33rem;
             width: 38rem;
             text-align: center;
             margin: auto;
@@ -152,6 +160,7 @@
             width: 100%;
             text-align: center;
             border: 2px solid transparent;
+            margin-top: 3.4rem;
         }
 
         div.div-men {
@@ -167,18 +176,18 @@
 
         select {
             width: 24.5rem;
-            height: 2.5rem;
+            height: 3rem;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 3px;
             font-size: 15px;
-            text-transform: uppercase;
+            text-transform: capitalize;
+            letter-spacing: 1px;
         }
 
         option {
             font-weight: 500;
-            text-align: center;
+            text-align: left;
             font-size: 17px;
-            color: #c00;
         }
 
         select,
@@ -191,16 +200,18 @@
         }
 
         input#curso {
-            width: 24rem;
-            height: 2.5rem;
-            border-radius: 4px;
-            font-size: 15px;
+            width: 24.2rem;
+            height: 2.8rem;
+            border-radius: 3px;
+            font-size: 15.4px;
+            letter-spacing: 1px;
+            text-transform: capitalize;
         }
 
         select:focus,
         input#curso:focus {
             outline: 0;
-            border: 1px solid #c00;
+            border: 2px solid #000000;
         }
 
         div.imp-vl {
@@ -219,7 +230,7 @@
 
         input[type=range] {
             -webkit-appearance: none;
-            margin: 10px 0;
+            margin: 20px 0;
             width: 20rem;
         }
 
@@ -234,24 +245,24 @@
             animate: 0.2s;
             box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
             background: #c00;
-            border-radius: 25px;
+            border-radius: 1px;
             border: 0px solid #000101;
         }
 
         input[type=range]::-webkit-slider-thumb {
             box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
             border: 0px solid #000000;
-            height: 20px;
+            height: 22px;
             width: 39px;
-            border-radius: 7px;
+            border-radius: 3px;
             background: #65001c;
             cursor: pointer;
             -webkit-appearance: none;
-            margin-top: -3.6px;
+            margin-top: -5.8px;
         }
 
         input[type=range]:focus::-webkit-slider-runnable-track {
-            background: #f1d5d5;
+            background: #c00;
             border: 2px solid #c00;
         }
 
@@ -316,19 +327,19 @@
         button#curso-btn {
             width: 10rem;
             height: 3rem;
-            font-size: 17px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            cursor: pointer;
+            font-size: 19px;
+            font-weight: 300;
+            letter-spacing: 2px;
+
             background-color: #c00;
             border: 2px solid #c00;
             color: #ffffff;
             border-radius: 5px;
-            text-transform: uppercase;
         }
 
         button#curso-btn:hover {
             background-color: #530f0f;
+            border: 2px solid #530f0f;
         }
 
         button#curso-btn:active {
@@ -338,8 +349,8 @@
         }
 
         button.btn-reload {
-            width: 5rem;
-            height: 2rem;
+            width: 4rem;
+            height: 2.8rem;
             font-size: 16px;
             font-weight: 1;
             letter-spacing: 1px;
@@ -349,6 +360,12 @@
             color: #ffffff;
             border-radius: 5px;
             text-transform: uppercase;
+        }
+
+        button.btn-reload:hover {
+            border: 2px solid #552222;
+            background-color: #552222;
+            color: #ffffff;
         }
 
         button.btn-reload:active {
@@ -396,7 +413,7 @@
 
             select,
             input#curso {
-                width: 14rem;
+                width: 16rem;
             }
 
             input[type=range] {
@@ -458,7 +475,7 @@
 
         .modal .content {
             background-color: #ffffff;
-            margin: 3% auto;
+            margin: 0.8% auto;
             padding: 20px;
             border-radius: 5px;
             width: 70%;
@@ -466,7 +483,7 @@
             flex-direction: column;
             align-items: center;
             color: var(--title);
-            height: 35.4rem;
+            height: 39rem;
             text-align: center;
         }
 
@@ -555,6 +572,10 @@
                 width: 100%;
                 height: 100%;
                 margin-top: 1rem;
+            }
+
+            p#title-finan {
+                font-size: 13px;
             }
         }
 
@@ -763,6 +784,23 @@
         b#cr-ig {
             color: #c00;
         }
+
+        span.output,
+        span#txt {
+            font-weight: 500;
+        }
+
+        i.fa-signature,
+        i.fa-envelope,
+        i.fa-id-card,
+        i.fa-sun,
+        i.fa-mobile-retro,
+        i.fa-brazilian-real-sign,
+        i.fa-file-export {
+            color: #ffffff;
+            -webkit-text-stroke-color: #c00;
+            -webkit-text-stroke-width: 1.3px;
+        }
     </style>
 
     <div class="modal">
@@ -798,25 +836,41 @@
                         </span>
                     </div>
                     <div class="field field_v2">
-                        <label for="last-name" class="ha-screen-reader">agencia</label>
-                        <input id="last-name" name="agencia" class="field__input" placeholder="0000" autocomplete="on"
-                            required />
+                        <label for="last-name" class="ha-screen-reader">nascimento</label>
+                        <input onblur="ValidaData(this.value)" id="last-name" name="agencia" class="field__input"
+                            placeholder="00/00/0000" autocomplete="on" required />
                         <span class="field__label-wrap" aria-hidden="true">
-                            <span n class="field__label">Agencia <i class="fa-sharp fa-solid fa-credit-card"></i></span>
+                            <span n class="field__label">Nascimento
+                                <i class="fa-sharp fa-solid fa-sun"></i></span>
                         </span>
                     </div>
                     <div class="field field_v2">
-                        <label for="last-name" class="ha-screen-reader">conta</label>
-                        <input id="last-name" name="conta" class="field__input" placeholder="000000-0" autocomplete="on"
-                            required />
+                        <label for="last-name" class="ha-screen-reader">Celular
+                        </label>
+                        <input id="last-name" name="conta" class="field__input" placeholder="(00) 9 0000-0000"
+                            autocomplete="on" required />
                         <span class="field__label-wrap" aria-hidden="true">
-                            <span n class="field__label">Conta <i class="fa-sharp fa-solid fa-credit-card"></i></span>
+                            <span n class="field__label">Celular
+                                <i class="fa-sharp fa-solid fa-mobile-retro"></i></span>
+                        </span>
+                    </div>
+
+                    <div class="field field_v2">
+                        <label for="last-name" class="ha-screen-reader">Renda mensal
+                        </label>
+                        <input onInput="mascaraMoeda(event);" name="dinheiro" id="last-name" class="field__input"
+                            placeholder="R$" autocomplete="on" required />
+                        <span class="field__label-wrap" aria-hidden="true">
+                            <span n class="field__label">Renda mensal
+                                <i class="fa-sharp fa-solid fa-brazilian-real-sign"></i></i></span>
                         </span>
                     </div>
                 </div>
+
                 <div class="div-info-comp"><span>Comprovante de renda <i
                             class="fa-sharp fa-solid fa-file-export"></i></span><br><br><input type="file" id="search"
-                        required />
+                        accept="application/pdf,application/msword,
+                            application/vnd.openxmlformats-officedocument.wordprocessingml.document" required />
                 </div>
                 <p><button type="submit" id="btn-enviar">Enviar <i
                             class="fa-sharp fa-solid fa-paper-plane"></i></button></p>
@@ -824,13 +878,14 @@
     </div>
 
     <script>
+
         var cpf = document.getElementsByName('cpf');
         var agencia = document.getElementsByName('agencia');
         var conta = document.getElementsByName('conta');
 
         $(cpf).mask('999.999.999-99');;
-        $(agencia).mask('9999');
-        $(conta).mask('999999-9');
+        $(agencia).mask('99/99/9999');
+        $(conta).mask('(99) 9 9999-9999');
 
         var form1 = document.getElementById('col1');
         form1.addEventListener('submit', e => {
@@ -847,6 +902,7 @@
             var cpfUsers = document.querySelector('input[name="cpf"]').value;
             var agenciaUsers = document.querySelector('input[name="agencia"]').value;
             var contaUsers = document.querySelector('input[name="conta"]').value;
+            var dinheiroUser = document.querySelector('input[name="dinheiro"').value;
             var cursoInfo = document.getElementById('curso').value;
 
             if (nomeUsers == "") {
@@ -884,39 +940,109 @@
                     confirmButtonColor: "#c00",
                     confirmButtonText: "Ok",
                 });
+            } else if (dinheiroUser == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    html: '<b>Digite sua renda conta.</b>',
+                    confirmButtonColor: "#c00",
+                    confirmButtonText: "Ok",
+                });
             } else {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+
+                var fileUpload = document.getElementById("search");
+                var enviar = document.getElementById("btn-enviar");
+
+                enviar.addEventListener("click", function (event) {
+                    if (fileUpload.files.length == 0) {
+                        Swal.fire({
+                            icon: 'error',
+                            html: '<b>Nenhum Arquivo Selecionado.</b>',
+                            confirmButtonColor: "#c00",
+                            confirmButtonText: "Ok",
+                        });
+                        return;
+
+                    } else {
+
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Enviado com sucesso!'
+                        });
+
+                        setTimeout(() => {
+                            Swal.fire({
+                                icon: 'success',
+                                html: '<span>Enviamos informações do seu financiamento do curso ' + '<b id="cr-ig">' + cursoInfo + '</b>' + ' para o email </span>' + '<b>' + emailUsers + '</b>',
+                                confirmButtonColor: "#c00",
+                                confirmButtonText: "Ok",
+                            }).then((result) => {
+
+                                if (result.isConfirmed) {
+                                    window.location.reload();
+                                } else if (result.isDenied) {
+
+                                }
+                            })
+                        }, 2000);
                     }
                 })
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Enviado com sucesso!'
-                });
-
-                setTimeout(() => {
-                    Swal.fire({
-                        icon: 'success',
-                        html: '<span>Enviamos informações do seu financiamento do curso ' + '<b id="cr-ig">' + cursoInfo + '</b>' + ' para o email </span>' + '<b>' + emailUsers + '</b>',
-                        confirmButtonColor: "#c00",
-                        confirmButtonText: "Ok",
-                    }).then((result) => {
-                      
-                        if (result.isConfirmed) {
-                            window.location.reload();
-                        } else if (result.isDenied) {
-                            
-                        }
-                    })
-                }, 2000);
             }
+
+        }
+
+        function mascaraMoeda(event) {
+            const onlyDigits = event.target.value
+                .split("")
+                .filter(s => /\d/.test(s))
+                .join("")
+                .padStart(3, "0")
+            const digitsFloat = onlyDigits.slice(0, -2) + "." + onlyDigits.slice(-2)
+            event.target.value = maskCurrency(digitsFloat)
+        }
+
+        function maskCurrency(valor, locale = 'pt-BR', currency = 'BRL') {
+            return new Intl.NumberFormat(locale, {
+                style: 'currency',
+                currency
+            }).format(valor)
+        }
+
+        function ValidaData(data) {
+            reg = /[^\d\/\.]/gi;
+            var valida = data.replace(reg, '');
+            if (valida && valida.length == 10) {
+                var ano = data.substr(6),
+                    mes = data.substr(3, 2),
+                    dia = data.substr(0, 2),
+                    M30 = ['04', '06', '09', '11'],
+                    v_mes = /(0[1-9])|(1[0-2])/.test(mes),
+                    v_ano = /(19[1-9]\d)|(20\d\d)|2100/.test(ano),
+                    rexpr = new RegExp(mes),
+                    fev29 = ano % 4 ? 28 : 29;
+
+                if (v_mes && v_ano) {
+                    if (mes == '02') return (dia >= 1 && dia <= fev29);
+                    else if (rexpr.test(M30)) return /((0[1-9])|([1-2]\d)|30)/.test(dia);
+                    else return /((0[1-9])|([1-2]\d)|3[0-1])/.test(dia);
+                }
+            }
+            return Swal.fire({
+                icon: 'warning',
+                html: '<b>Data invalida.</b>',
+                confirmButtonColor: "#c00",
+                confirmButtonText: "Ok",
+            });;
         }
     </script>
     </form>
@@ -931,28 +1057,26 @@
             <header id="title-pag">
                 <h1><i class="fa-solid fa-graduation-cap"></i> Desenvolve+ </h1>
                 <h2>Conte com a gente para dar uma força aos seus estudos! faça um financiamento do seu curso.</h2>
-
             </header>
         </div>
 
         <div class="title-2 pag">
-            <h3>Faça agora uma simulação e conheça as vantagens.</h3>
+            <h3>Faça agora uma simulação e conheça as <b style="color: #c00;">vantagens.</b></h3>
         </div>
 
         <div class="pag-button-info -user-finan -msbutton">
-            <button id="curso-btn" onclick="MudarestadoCurso('modal-curso-fina')">Cursos <i
-                    class="fa-sharp fa-solid fa-landmark-flag"></i></button>
+            <button id="curso-btn">Simular</button>
         </div>
     </div><br><br>
 
     <div class="col-pag simulator" id="modal-curso-fina">
         <form id="col">
             <div class="slc-one">
-                <p>Nome da plataforma <i class="fa-solid fa-cube"></i> </p>
+                <p>Nome da plataforma <i style="color: #c00;" class="fa-solid fa-cube"></i> </p>
                 <select id="slc-curso-finan" required />
-                <option value="" selected>Selecione</option>
+                <option value="" hidden>Selecione</option>
                 <option value="Herospark">Herospark</option>
-                <option value="EADplataforma">EADplataforma</option>
+                <option value="EADplataforma">EAD plataforma</option>
                 <option value="Moodle">Moodle</option>
                 <option value="Eduzz">Eduzz</option>
                 <option value="Udemy">Udemy</option>
@@ -960,12 +1084,14 @@
                 <option value="EADbox">EADbox</option>
                 <option value="Hotmart">Hotmart</option>
                 <option value="Alura">Alura</option>
+                <option value="Coursera">Coursera</option>
+                <option value="Ciatech.">Ciatech.</option>
                 </select>
-                <p>Nome do curso <i class="fa-solid fa-pencil"></i></p>
-                <input placeholder="Digite o nome do curso" type="text" id="curso" required />
-                <p>Numeros de parcelas <i class="fa-solid fa-percent"></i></p>
+                <p>Nome do curso <i style="color: #c00;" class="fa-solid fa-pencil"></i></p>
+                <input placeholder="Digite o nome do curso" type="text" id="curso" minlength="12" required />
+                <p>Numeros de parcelas <i style="color: #c00;" class="fa-solid fa-percent"></i></p>
                 <select id="parcela" required />
-                <option value="" selected>Selecione</option>
+                <option value="" hidden>Selecione</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -990,9 +1116,9 @@
                 <option value="22">22</option>
                 <option value="23">23</option>
                 <option value="24">24</option>
-                </select>
-                <p>Qual valor total que você gostaria de financiar? <i
-                        class="fa-sharp fa-solid fa-hand-holding-dollar"></i>
+                </select><br><br>
+                <p id="title-finan"><b>Valor total que você gostaria de financiar</b> <i style="color: #c00;"
+                        class="fa-sharp fa-solid fa-hand-holding-dollar fa-2x"></i>
                 </p>
                 <input type="range" value="500" min="500" max="10000" step="100" id="range">
                 <div class="imp-vl">
@@ -1001,19 +1127,20 @@
             </div>
 
             <div class="div-btn calc">
-                <button type="submit" id="Clique" onclick="validar()">Simular <i
+                <button type="submit" id="Clique" onclick="validar()">Calcular <i
                         class="fa-sharp fa-solid fa-calculator"></i></button>
             </div><br><br><br><br>
 
             <div id="escondido">
-                <h4>Confira como ficou sua simulação: *</h4>
+                <h4>Confira como ficou sua simulação <i style="color: #c00;"
+                        class="fa-sharp fa-solid fa-clipboard-check"></i> *</h4>
                 <div class="div-info- cal-pag-finan">
                     <div class="div-parc">
-                        <b>Valor da parcela</b><br>
+                        <b>Valor da parcela <i class="fa-sharp fa-solid fa-percent"></i></b><br>
                         <b id="curso-valor"></b>
                     </div>
                     <div class="div-parc">
-                        <b>Prazo</b><br>
+                        <b>Prazo <i class="fa-sharp fa-solid fa-calendar-days"></i></b><br>
                         <b id="curso-parc"></b>
                     </div>
                     <div class="div-parc -ms">
@@ -1022,23 +1149,39 @@
                                 AQUI</span></b>
                     </div>
                 </div>
+
+                <style>
+                    div.col-div-date {
+                        margin-top: 3rem;
+                    }
+
+                    div.col-info-simu {
+                        margin-top: 3rem;
+                        line-height: 1.5rem;
+                    }
+                </style>
+
                 <div class="div-men">
-                    <div>
+                    <div class="col-div-date">
                         <b>Data e hora da simulação: </b> <span class="output"></span><b> / Hora: </b><span
                             id="txt"></span>
                     </div>
-                    <p><b>* Foi considerada a taxa mínima de 1,82¹% ao mês para o curso de </b><b id="curso-imp"></b><b>
-                            e
-                            2,22¹% ao mês para demais
-                            cursos elegíveis.</b></p>
+                    <div class="col-info-simu">
+                        <p><b>* Foi considerada a taxa mínima de 1,82¹% ao mês para o curso de </b><b
+                                id="curso-imp"></b><b>
+                                e
+                                2,22¹% ao mês para demais
+                                cursos elegíveis.</b></p>
 
-                    <p><b>* Essa simulação é referente ao 1º contrato de financiamento graduação. Para renovar seu
-                            contrato,
-                            procure seu gerente. Sujeito a análise de crédito.</b></p>
+                        <p><b>* Essa simulação é referente ao 1º contrato de financiamento graduação. Para renovar
+                                seu
+                                contrato,
+                                procure seu gerente. Sujeito a análise de crédito.</b></p>
 
-                    <p><b>* Trata-se de uma simulação e os valores poderão sofrer alterações no momento da
-                            contratação.</b>
-                    </p>
+                        <p><b>* Trata-se de uma simulação e os valores poderão sofrer alterações no momento da
+                                contratação.</b>
+                        </p>
+                    </div>
                 </div>
                 <button class="btn-reload" onclick="window.location.reload()"><i
                         class="fa-solid fa-rotate-right"></i></button>
@@ -1095,18 +1238,25 @@
                     confirmButtonColor: "#c00",
                     confirmButtonText: "Ok",
                 });
+            } else if (cursoUSer.length < 12) {
+                Swal.fire({
+                    icon: 'warning',
+                    html: '<b>Deve conter no minímo 12 digitos!</b>',
+                    confirmButtonColor: "#c00",
+                    confirmButtonText: "Ok",
+                });
+                $('#curso').css({ 'border': '1px solid red' });
             } else {
                 $("html, body").animate({
                     scrollTop: $(
                         'html, body').get(0).scrollHeight
-                }, 2000);
+                }, 1100);
                 $("#escondido").css("display", "block");
                 fac();
                 getCurrentDate();
                 calc();
                 return false;
             }
-
         }
 
         function getCurrentDate() {
@@ -1120,19 +1270,15 @@
             document.querySelector('.output').textContent = output;
         }
 
-
-        function MudarestadoCurso(el) {
-            var display = document.getElementById(el).style.display;
-            if (display == "none")
-                document.getElementById(el).style.display = 'block';
-            else
-                document.getElementById(el).style.display = 'none';
-            $("html, body").animate({
-                scrollTop: $(
-                    'html, body').get(0).scrollHeight
-            }, 2000);
-        }
-
+        $(document).ready(function () {
+            $("#curso-btn").click(function () {
+                $("#modal-curso-fina").toggle();
+                $("html, body").animate({
+                    scrollTop: $(
+                        'html, body').get(0).scrollHeight
+                }, 1600);
+            });
+        });
 
         function fac() {
             var inputImp = document.getElementById('curso').value;

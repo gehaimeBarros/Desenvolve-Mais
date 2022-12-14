@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form name="calcula">
+        <p><input type="text" name="f" id="monitor"><input type="button" id="apg" value="apagar"></p>
+
+        <script>
+            var inputTelas = document.getElementById('monitor');
+            var btnApg = document.getElementById('apg');
+
+            btnApg.addEventListener('click', function () {
+                if (inputTelas.value.length) {
+                    inputTelas.value = inputTelas.value.substr(0, inputTelas.value.length - 1);
+                    inputTelas.focus();
+                }
+            });
+        </script>
+        <p>
+            <input type="button" value="1" onClick="javascript:calc(value)" id="">
+            <input type="button" value="2" onClick="javascript:calc(value)" id="">
+            <input type="button" value="3" onClick="javascript:calc(value)" id="">
+            <input type="button" value="+" onClick="javascript:calc(value)" id="">
+        </p>
+
+        <p>
+            <input type="button" value="4" onClick="javascript:calc(value)" id="">
+            <input type="button" value="5" onClick="javascript:calc(value)" id="">
+            <input type="button" value="6" onClick="javascript:calc(value)" id="">
+            <input type="button" value="-" onClick="javascript:calc(value)" id="">
+        </p>
+
+        <p>
+            <input type="button" value="7" onClick="javascript:calc(value)" id="">
+            <input type="button" value="8" onClick="javascript:calc(value)" id="">
+            <input type="button" value="9" onClick="javascript:calc(value)" id="">
+            <input type="button" value="*" onClick="javascript:calc(value)" id="">
+        </p>
+
+        <p>
+            <input type="button" value="0" onClick="javascript:calc(value)" id="">
+            <input type="button" value="/" onClick="javascript:calc(value)" id="">
+            <input type="button" value="=" onClick="javascript:calc(value)" id="">
+            <input type="reset" id="">
+        </p>
+    </form>
+
+    <script>
+
+
+        function calc(valor) {
+            if (valor == "=") {
+                document.calcula.f.value = eval(document.calcula.f.value);
+            } else {
+                document.calcula.f.value = document.calcula.f.value + valor;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

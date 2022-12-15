@@ -182,6 +182,7 @@
             font-size: 15px;
             text-transform: capitalize;
             letter-spacing: 1px;
+            background-color: #ffffff;
         }
 
         option {
@@ -193,6 +194,7 @@
         select,
         input#curso {
             border: 1px solid #000000;
+            font-size: 17px;
         }
 
         input#curso:focus::-webkit-input-placeholder {
@@ -203,15 +205,19 @@
             width: 24.2rem;
             height: 2.8rem;
             border-radius: 3px;
-            font-size: 15.4px;
             letter-spacing: 1px;
             text-transform: capitalize;
+            background-color: #ffffff;
         }
 
         select:focus,
         input#curso:focus {
             outline: 0;
             border: 2px solid #000000;
+        }
+
+        input#curso::placeholder {
+            text-transform: none;
         }
 
         div.imp-vl {
@@ -409,6 +415,11 @@
                 margin: auto;
                 width: 20rem;
                 text-align: center;
+                height: 37rem;
+            }
+
+            #escondido {
+                height: 56rem;
             }
 
             select,
@@ -423,7 +434,13 @@
             .div-men,
             .div-parc,
             h4 {
-                width: 20rem;
+                width: 19rem;
+            }
+
+            #col-one-title-1,
+            #col-one-title-2,
+            #col-one-title-3 {
+                margin-bottom: 20px;
             }
 
             div.cal-pag-finan {
@@ -796,7 +813,8 @@
         i.fa-sun,
         i.fa-mobile-retro,
         i.fa-brazilian-real-sign,
-        i.fa-file-export {
+        i.fa-file-export,
+        i.fa-table-list {
             color: #ffffff;
             -webkit-text-stroke-color: #c00;
             -webkit-text-stroke-width: 1.3px;
@@ -807,7 +825,8 @@
         <div class="content">
             <form id="col1">
                 <h1 class="title"><i style="color: #c00;" class="fa-solid fa-graduation-cap"></i> Desenvolve+</h1>
-                <h5>Digite suas informações para aprovação do financiamento <i class="fa-sharp fa-solid fa-list"></i>
+                <h5>Digite suas informações para aprovação do financiamento <i
+                        class="fa-sharp fa-solid fa-table-list fa-1x"></i>
                 </h5>
                 <div class="page">
                     <div class="field field_v2">
@@ -1085,7 +1104,7 @@
                 <option value="Hotmart">Hotmart</option>
                 <option value="Alura">Alura</option>
                 <option value="Coursera">Coursera</option>
-                <option value="Ciatech.">Ciatech.</option>
+                <option value="Ciatech.">Ciatech</option>
                 </select>
                 <p>Nome do curso <i style="color: #c00;" class="fa-solid fa-pencil"></i></p>
                 <input placeholder="Digite o nome do curso" type="text" id="curso" minlength="12" required />
@@ -1135,15 +1154,15 @@
                 <h4>Confira como ficou sua simulação <i style="color: #c00;"
                         class="fa-sharp fa-solid fa-clipboard-check"></i> *</h4>
                 <div class="div-info- cal-pag-finan">
-                    <div class="div-parc">
+                    <div class="div-parc" id="col-one-title-1">
                         <b>Valor da parcela <i class="fa-sharp fa-solid fa-percent"></i></b><br>
                         <b id="curso-valor"></b>
                     </div>
-                    <div class="div-parc">
+                    <div class="div-parc" id="col-one-title-2">
                         <b>Prazo <i class="fa-sharp fa-solid fa-calendar-days"></i></b><br>
                         <b id="curso-parc"></b>
                     </div>
-                    <div class="div-parc -ms">
+                    <div class="div-parc -ms" id="col-one-title-3">
                         <b id="text-b ms">E ai, coube no bolso?<br>
                             <span id="i" style="cursor: pointer;">Vamos financiar?</span><br><span id="finan">CLIQUE
                                 AQUI</span></b>
